@@ -1,0 +1,13 @@
+from requests_html import HTMLSession 
+from bs4 import BeautifulSoup
+
+s = HTMLSession()
+url = 'https://www.amazon.in/Rockerz-370-Headphone-Bluetooth-Lightweight/product-reviews/B0856HNMR7/ref=cm_cr_dp_d_show_all_btm?ie=UTF8exit'
+
+def getdata(url):
+    r = s.get(url)
+    soup = BeautifulSoup(r.text, 'html.parser  ')
+    return soup
+
+getdata(url)
+
